@@ -6,7 +6,7 @@ import path from "node:path"
 // NOTE: For GitHub Pages project sites, set `base` to "/<repo-name>/".
 // For a user/organization site (username.github.io) keep it as "/".
 export default defineConfig({
-  base: "./",
+  base: "/portfolio/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

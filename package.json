@@ -2,7 +2,7 @@
   "name": "dev-portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://your-username.github.io/portfolio",
+  "homepage": "https://PedroS42.github.io/portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",

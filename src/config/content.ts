@@ -12,6 +12,7 @@ import {
   BookOpen,
   type LucideIcon,
 } from "lucide-react"
+import { publicUrl } from "@/lib/publicUrl"
 
 /* ---------- About ---------- */
 export interface QuickFact {
@@ -168,7 +169,7 @@ export const projects: Project[] = [
     longDescription:
       "Developed during my curricular internship at DevScope. This toolkit introduces automated, AI-driven security gates (Shift-Left) and auto-merge capabilities on GitHub Actions, predicts Azure infrastructure costs by combining Infracost with LLMs, generates production-ready Terraform manifests from prompts, and autonomously diagnoses and self-heals Kubernetes container crashes.",
     tech: ["Python", "Terraform", "Kubernetes", "Azure", "GitHub Actions", "Infracost", "Groq"],
-    image: "/projects/project-aiops.png",
+    image: publicUrl("projects/project-aiops.png"),
     repo: "https://github.com/PedroS42/ai-devops-test",
     featured: true,
   },
@@ -178,7 +179,7 @@ export const projects: Project[] = [
     longDescription:
       "This platform combines Domain-Driven .NET services, a Node.js service, a role-based React/TypeScript SPA with real-time 3D visualization, and an AI-based scheduler.",
     tech: [".NET", "C#", "TypeScript", "React", "Prolog", "JavaScript", "Three.js", "Node.js"],
-    image: "/projects/project-port.png",
+    image: publicUrl("projects/project-port.png"),
     repo: "https://github.com/PedroS42/Port-Logistics-Management-System",
     featured: true,
   },
@@ -188,7 +189,7 @@ export const projects: Project[] = [
     longDescription:
       "A high-performance flight simulation platform developed in C that models multiple aircraft executing real flight plans concurrently. The simulator combines a hybrid multiprocessing and multithreading architecture with POSIX shared memory, semaphores, mutexes, condition variables, pipes, and Unix signals to synchronize aircraft, detect potential collisions in real time using the Haversine formula, and coordinate autonomous flight execution.",
     tech: ["C", "POSIX", "Linux", "Pthreads", "Shared Memory", "Semaphores", "Pipes", "Signals"],
-    image: "/projects/project-flightsimulator.png",
+    image: publicUrl("projects/project-flightsimulator.png"),
     repo: "https://github.com/PedroS42/Flight-Fleet-Simulator",
     featured: false,
   },
@@ -198,7 +199,7 @@ export const projects: Project[] = [
     longDescription:
       "This project investigates whether replacing traditional public street-lighting (sodium/mercury) with LED technology frees enough electrical capacity in Distribution Transformer Stations (PTD/DTS) to support new 22 kW EV charging stations. It takes two raw E-REDES datasets through a full data-science pipeline - cleaning, exploratory analysis, statistical inference, and predictive modeling - and presents the findings in an interactive dashboard.",
     tech: ["Python", "pandas", "statsmodels", "Jupyter"],
-    image: "/projects/project-gridLightEV.png",
+    image: publicUrl("projects/project-gridLightEV.png"),
     repo: "https://github.com/PedroS42/GridLightEV",
     featured: true,
   },
@@ -208,7 +209,7 @@ export const projects: Project[] = [
     longDescription:
       "A modern single-page portfolio built with React, TypeScript, TailwindCSS and Framer Motion.",
     tech: ["React", "TypeScript", "Tailwind"],
-    image: "/projects/project-portfolio.png",
-    repo: "#",
+    image: publicUrl("projects/project-portfolio.png"),
+    repo: "https://github.com/PedroS42/portfolio",
   },
 ]

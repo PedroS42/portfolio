@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { FiGithub, FiExternalLink } from "react-icons/fi"
 import { ArrowUpRight } from "lucide-react"
 import { projects, type Project } from "@/config/content"
+import { publicUrl } from "@/lib/publicUrl"
 import { Section } from "@/components/ui/Section"
 import { Reveal } from "@/components/ui/Reveal"
 import { ProjectModal } from "./ProjectModal"
@@ -31,7 +32,7 @@ export function Projects() {
                 aria-label={`View details for ${project.title}`}
               >
                 <img
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image || publicUrl("placeholder.svg")}
                   alt={project.title}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

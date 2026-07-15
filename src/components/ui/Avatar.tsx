@@ -1,5 +1,6 @@
 import { site } from "@/config/site"
 import { cn } from "@/lib/utils"
+import { publicUrl } from "@/lib/publicUrl"
 import { Blobs } from "./Blobs"
 
 interface AvatarProps {
@@ -12,7 +13,7 @@ interface AvatarProps {
  * Decorative blurred blobs sit behind the image.
  */
 export function Avatar({ className }: AvatarProps) {
-  const src = site.avatar || "/avatar.png"
+  const src = site.avatar || publicUrl("avatar.png")
 
   return (
     <div className={cn("relative aspect-square", className)}>
