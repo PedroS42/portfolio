@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   Design Tokens
+   Premium, minimalist developer aesthetic
+   Inspired by GitHub / Raycast / Vercel / Linear / shadcn
+============================================================ */
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(220 20% 12%);
+
+  --muted: hsl(220 14% 96%);
+  --muted-foreground: hsl(220 10% 42%);
+
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(220 20% 12%);
+  --card-hover: hsl(220 14% 98%);
+
+  --border: hsl(220 13% 90%);
+  --border-strong: hsl(220 13% 82%);
+
+  --accent: hsl(190 95% 40%);
+  --accent-foreground: hsl(0 0% 100%);
+  --accent-soft: hsl(190 90% 45% / 0.12);
+
+  --ring: hsl(190 95% 40%);
+
+  --glow: hsl(190 95% 50% / 0.18);
+
+  --radius: 0.9rem;
+
+  --grid-line: hsl(220 13% 91% / 0.6);
+}
+
+.dark {
+  --background: hsl(228 14% 5%);
+  --foreground: hsl(220 15% 92%);
+
+  --muted: hsl(228 12% 11%);
+  --muted-foreground: hsl(220 10% 60%);
+
+  --card: hsl(228 13% 8%);
+  --card-foreground: hsl(220 15% 92%);
+  --card-hover: hsl(228 12% 11%);
+
+  --border: hsl(228 10% 16%);
+  --border-strong: hsl(228 10% 24%);
+
+  --accent: hsl(185 90% 52%);
+  --accent-foreground: hsl(228 14% 6%);
+  --accent-soft: hsl(185 90% 52% / 0.14);
+
+  --ring: hsl(185 90% 52%);
+
+  --glow: hsl(185 90% 55% / 0.22);
+
+  --grid-line: hsl(228 10% 18% / 0.7);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-hover: var(--card-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-sm: calc(var(--radius) - 0.5rem);
+  --radius-xl: calc(var(--radius) + 0.35rem);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    scroll-behavior: smooth !important;
+  }
+
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--foreground);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 999px;
+    border: 2px solid var(--background);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Dotted grid background */
+  .bg-grid {
+    background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .glass {
+    background-color: color-mix(in srgb, var(--background) 72%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--foreground) 0%,
+      var(--accent) 55%,
+      var(--foreground) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px var(--border), 0 8px 40px -12px var(--glow);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Blinking caret for typing effect */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* Slow float for decorative blurred blobs */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+.animate-floaty {
+  animation: floaty 9s ease-in-out infinite;
+}
